@@ -11,11 +11,11 @@ Each project uses different technologies, requires **no paid APIs**, and is host
 |-----|--------------|------------|-------------|-----------|
 | 1 | To-Do List App | HTML, CSS, JavaScript | project-1-todo-list | [View](https://abhirambuilds.github.io/mini-projects-2025/project-1-todo-list/) |
 | 2 | Personal Portfolio Website | HTML, CSS, JavaScript | project-2-portfolio-website | (coming soon) |
-| 3 | Calculator App | Java Swing | project-3-calculator-swing | (coming soon) |
-| 4 | Markdown Blog Site | Python Flask | project-4-markdown-blog | (coming soon) |
-| 5 | Expense Tracker | Python Tkinter | project-5-expense-tracker | (coming soon) |
+| 3 | Calculator App | Java Swing | project-3-calculator-swing | (-) |
+| 4 | Markdown Blog Site | Python Flask | project-4-markdown-blog | (-) |
+| 5 | Expense Tracker | Python Tkinter | project-5-expense-tracker | (-) |
 | 6 | Offline Chatbot | HTML, CSS, JavaScript | project-6-offline-chatbot | (coming soon) |
-| 7 | Handwritten Digit Recognition | Python, Streamlit, TensorFlow | project-7-digit-recognition | (coming soon) |
+| 7 | Handwritten Digit Recognition | Python, Streamlit, TensorFlow | project-7-digit-recognition | (-) |
 | 8 | Memory Matching Game | HTML, CSS, JavaScript | project-8-memory-game | (coming soon) |
 
 ---
