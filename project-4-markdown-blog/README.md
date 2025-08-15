@@ -1,18 +1,14 @@
 Markdown Blog
 
-A lightweight, local Markdown blogging platform built with Python Flask, featuring user authentication, role-based access control, and a modern social-media-style interface.
+A lightweight local Markdown blogging platform built with Python Flask featuring user authentication, role-based access control, and a modern social-media-style interface.
 
-✨ Features
+Features
 
 User Authentication – Register, log in, and manage accounts securely
 
-Role-Based Access –
+Role-Based Access – Regular users can create and manage their own posts; Admins have full content and user management
 
-Regular users: Create & manage their own posts
-
-Admins: Full content & user management
-
-Secure Authentication – Password hashing & session management
+Secure Authentication – Password hashing and session management
 
 Post Management – Create, edit, and delete Markdown posts
 
@@ -26,7 +22,7 @@ Like Feature – One like per user per post
 
 Responsive UI – Mobile-friendly layout using Bootstrap
 
-📦 Requirements
+Requirements
 
 Python 3.7+
 
@@ -42,72 +38,71 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-🚀 Getting Started
+Getting Started
 
-Clone the repository
+Clone the repository:
 
 git clone <repo_url>
 cd markdown-blog
 
 
-Install dependencies
+Install dependencies:
 
 pip install -r requirements.txt
 
 
-Run the app
+Run the app:
 
 python app.py
 
 
-Open http://localhost:5000 in your browser.
+Open http://localhost:5000 in your browser
 
-🔑 Default Admin Account
+Default Admin Account
 
 Username: admin
-
 Password: admin123
-
 (Created automatically on first run)
 
-👤 User Roles
-Regular Users
+User Roles
 
-✅ Create & view blog posts
+Regular Users:
 
-✅ Search posts
+Create & view blog posts
 
-✅ Manage profile & change password
+Search posts
 
-✅ Delete their own posts
+Manage profile & change password
 
-❌ Edit existing posts
+Delete their own posts
 
-❌ Delete other users’ posts
+Cannot edit existing posts
 
-Administrators
+Cannot delete other users’ posts
 
-✅ All regular user privileges
+Administrators:
 
-✅ Edit/delete any post
+All regular user privileges
 
-✅ View all registered users
+Edit/delete any post
 
-✅ Grant/revoke admin privileges
+View all registered users
 
-✅ Delete user accounts
+Grant/revoke admin privileges
 
-✅ Access the Admin Dashboard
+Delete user accounts
 
-📂 File Structure
+Access the Admin Dashboard
+
+File Structure
 project/
-├── app.py                    # Main Flask application
-├── blog.db                   # SQLite database
-├── posts/                    # Markdown post storage
+├── app.py
+├── blog.db
+├── posts/
 │   ├── example-post.md
 │   ├── encyclopedia.md
 │   └── flask-web-development.md
-├── templates/                # HTML templates
+├── templates/
 │   ├── base.html
 │   ├── index.html
 │   ├── post.html
@@ -123,7 +118,7 @@ project/
 ├── requirements.txt
 └── README.md
 
-🛡 Security Features
+Security Features
 
 Password Hashing (Werkzeug)
 
@@ -135,21 +130,13 @@ Role-Based Permissions
 
 Secure Logout
 
-⚙️ How It Works
+How It Works
 
-Users register with a username, email, and password
+Users register with a username, email, and password. Posts are stored as Markdown files in the posts folder. Markdown is converted to HTML for display. SQLite stores user accounts and roles. Admin users have full control over posts and accounts.
 
-Posts are stored as Markdown files in /posts
+API Endpoints
 
-Markdown is converted to HTML for display
-
-SQLite stores user accounts & roles
-
-Admin users have full control over posts & accounts
-
-🔌 API Endpoints
-
-Public & User Routes
+Public & User Routes:
 
 GET / → Homepage with all posts
 
@@ -161,7 +148,7 @@ POST /create → Submit new post
 
 GET /search → Search posts
 
-Admin Routes
+Admin Routes:
 
 GET /edit/<filename> → Edit post
 
@@ -173,13 +160,12 @@ POST /admin/user/<id>/toggle-admin → Change role
 
 POST /admin/user/<id>/delete → Delete user
 
-Like System
+Like System:
 
 POST /like/<filename> → Like/unlike post
 
 GET /post/<filename>/likes → Get like count
 
-📜 License
+License
 
-This project is open-source.
-Feel free to use, modify, and share it for learning or personal projects.
+This project is open-source. Feel free to use, modify, and share it for learning or personal projects.
