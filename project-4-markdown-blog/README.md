@@ -1,30 +1,35 @@
-Markdown Blog
+📝 Markdown Blog Site (Python Flask)
 
-A lightweight local Markdown blogging platform built with Python Flask featuring user authentication, role-based access control, and a modern social-media-style interface.
+A lightweight local Markdown blogging platform built with Python Flask, featuring user authentication, role-based access control, and a modern, responsive interface.
 
 ✨ Features
+👥 User Authentication
 
-User Authentication – Register, log in, and manage accounts securely
+Register, log in, and manage accounts securely
 
-Role-Based Access –
+Password hashing & session management
 
-Regular users: Create & manage their own posts
+🔑 Role-Based Access
 
-Admins: Full content & user management
+Regular Users: Create, edit, and delete their own posts
 
-Secure Authentication – Password hashing & session management
+Admins: Manage all posts and users, access admin dashboard
 
-Post Management – Create, edit, and delete Markdown posts
+📰 Post Management
 
-Local Storage – Posts saved as .md files in a local folder
+Create, edit, delete Markdown posts
 
-Markdown Rendering – Converts .md to HTML for display
+Local storage as .md files
 
-Search System – Find posts by title
+Markdown → HTML rendering for display
 
-Like Feature – One like per user per post
+🔍 Search & Interaction
 
-Responsive UI – Mobile-friendly layout using Bootstrap
+Search posts by title
+
+Like/unlike posts (one like per user)
+
+Mobile-friendly responsive UI (Bootstrap)
 
 📦 Requirements
 
@@ -44,23 +49,23 @@ pip install -r requirements.txt
 
 🚀 Getting Started
 
-1. Clone the repository:
+Clone the repository
 
 git clone <repo_url>
 cd markdown-blog
 
 
-2. Install dependencies:
+Install dependencies
 
 pip install -r requirements.txt
 
 
-3. Run the app:
+Run the app
 
 python app.py
 
 
-4. Open in browser:
+Open in browser
 
 http://localhost:5000
 
@@ -74,34 +79,25 @@ Password: admin123
 👤 User Roles
 Regular Users
 
-✅ Create & view blog posts
-
+✅ Create & view posts
 ✅ Search posts
-
-✅ Manage profile & change password
-
+✅ Manage profile & password
 ✅ Delete their own posts
 
-❌ Edit existing posts
-
+❌ Edit other users’ posts
 ❌ Delete other users’ posts
 
 Administrators
 
 ✅ All regular user privileges
-
 ✅ Edit/delete any post
-
 ✅ View all registered users
-
 ✅ Grant/revoke admin privileges
-
 ✅ Delete user accounts
-
-✅ Access the Admin Dashboard
+✅ Access admin dashboard
 
 📂 File Structure
-project/
+project-4-markdown-blog/
 ├── app.py
 ├── blog.db
 ├── posts/
@@ -126,60 +122,28 @@ project/
 
 🛡 Security Features
 
-Password Hashing (Werkzeug)
+Password hashing (Werkzeug)
 
-Session-Based Authentication
+Session-based authentication
 
-Form Input Validation
+Role-based permissions
 
-Role-Based Permissions
+Form input validation
 
-Secure Logout
+Secure logout
 
 ⚙️ How It Works
 
 Users register with a username, email, and password
 
-Posts are stored as Markdown files in /posts
+Posts are stored locally in /posts as .md files
 
-Markdown is converted to HTML for display
+Markdown is rendered into HTML for display
 
-SQLite stores user accounts & roles
+SQLite database stores user accounts & roles
 
-Admin users have full control over posts & accounts
-
-🔌 API Endpoints
-
-Public & User Routes
-
-GET / → Homepage with all posts
-
-GET /post/<filename> → View a post
-
-GET /create → Create post (login required)
-
-POST /create → Submit new post
-
-GET /search → Search posts
-
-Admin Routes
-
-GET /edit/<filename> → Edit post
-
-POST /edit/<filename> → Save edits
-
-GET /admin/users → View all users
-
-POST /admin/user/<id>/toggle-admin → Change role
-
-POST /admin/user/<id>/delete → Delete user
-
-Like System
-
-POST /like/<filename> → Like/unlike post
-
-GET /post/<filename>/likes → Get like count
+Admins have complete control over posts & accounts
 
 📜 License
 
-This project is open-source. Feel free to use, modify, and share it for learning or personal projects.
+This project is open-source — you may use, modify, and share it for learning or personal projects.
