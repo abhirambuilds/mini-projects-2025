@@ -114,16 +114,6 @@ The app uses CSS custom properties and can be easily customized:
 - Animations can be adjusted in the keyframes section
 - Font sizes and spacing can be modified for different preferences
 
-## 🚀 Future Enhancements
-
-Potential features for future versions:
-- Task categories and tags
-- Due dates and reminders
-- Dark/light theme toggle
-- Export/import functionality
-- Cloud synchronization
-- Multiple lists support
-
 ## 📄 License
 
 This project is open source and available under the [MIT License](LICENSE).
@@ -135,3 +125,4 @@ Feel free to submit issues, feature requests, or pull requests to improve the ap
 ---
 
 **Enjoy organizing your tasks with this beautiful To-Do List app!** ✨
+
