@@ -2,13 +2,17 @@ Markdown Blog
 
 A lightweight local Markdown blogging platform built with Python Flask featuring user authentication, role-based access control, and a modern social-media-style interface.
 
-Features
+✨ Features
 
 User Authentication – Register, log in, and manage accounts securely
 
-Role-Based Access – Regular users can create and manage their own posts; Admins have full content and user management
+Role-Based Access –
 
-Secure Authentication – Password hashing and session management
+Regular users: Create & manage their own posts
+
+Admins: Full content & user management
+
+Secure Authentication – Password hashing & session management
 
 Post Management – Create, edit, and delete Markdown posts
 
@@ -22,7 +26,7 @@ Like Feature – One like per user per post
 
 Responsive UI – Mobile-friendly layout using Bootstrap
 
-Requirements
+📦 Requirements
 
 Python 3.7+
 
@@ -38,63 +42,65 @@ Install dependencies:
 
 pip install -r requirements.txt
 
-Getting Started
+🚀 Getting Started
 
-Clone the repository:
+1. Clone the repository:
 
 git clone <repo_url>
 cd markdown-blog
 
 
-Install dependencies:
+2. Install dependencies:
 
 pip install -r requirements.txt
 
 
-Run the app:
+3. Run the app:
 
 python app.py
 
 
-Open http://localhost:5000 in your browser
+4. Open in browser:
 
-Default Admin Account
+http://localhost:5000
+
+🔑 Default Admin Account
 
 Username: admin
+
 Password: admin123
 (Created automatically on first run)
 
-User Roles
+👤 User Roles
+Regular Users
 
-Regular Users:
+✅ Create & view blog posts
 
-Create & view blog posts
+✅ Search posts
 
-Search posts
+✅ Manage profile & change password
 
-Manage profile & change password
+✅ Delete their own posts
 
-Delete their own posts
+❌ Edit existing posts
 
-Cannot edit existing posts
+❌ Delete other users’ posts
 
-Cannot delete other users’ posts
+Administrators
 
-Administrators:
+✅ All regular user privileges
 
-All regular user privileges
+✅ Edit/delete any post
 
-Edit/delete any post
+✅ View all registered users
 
-View all registered users
+✅ Grant/revoke admin privileges
 
-Grant/revoke admin privileges
+✅ Delete user accounts
 
-Delete user accounts
+✅ Access the Admin Dashboard
 
-Access the Admin Dashboard
-
-File Structure
+📂 File Structure
 project/
 ├── app.py
 ├── blog.db
@@ -118,7 +124,7 @@ project/
 ├── requirements.txt
 └── README.md
 
-Security Features
+🛡 Security Features
 
 Password Hashing (Werkzeug)
 
@@ -130,13 +136,21 @@ Role-Based Permissions
 
 Secure Logout
 
-How It Works
+⚙️ How It Works
 
-Users register with a username, email, and password. Posts are stored as Markdown files in the posts folder. Markdown is converted to HTML for display. SQLite stores user accounts and roles. Admin users have full control over posts and accounts.
+Users register with a username, email, and password
 
-API Endpoints
+Posts are stored as Markdown files in /posts
 
-Public & User Routes:
+Markdown is converted to HTML for display
+
+SQLite stores user accounts & roles
+
+Admin users have full control over posts & accounts
+
+🔌 API Endpoints
+
+Public & User Routes
 
 GET / → Homepage with all posts
 
@@ -148,7 +162,7 @@ POST /create → Submit new post
 
 GET /search → Search posts
 
-Admin Routes:
+Admin Routes
 
 GET /edit/<filename> → Edit post
 
@@ -160,12 +174,12 @@ POST /admin/user/<id>/toggle-admin → Change role
 
 POST /admin/user/<id>/delete → Delete user
 
-Like System:
+Like System
 
 POST /like/<filename> → Like/unlike post
 
 GET /post/<filename>/likes → Get like count
 
-License
+📜 License
 
 This project is open-source. Feel free to use, modify, and share it for learning or personal projects.
