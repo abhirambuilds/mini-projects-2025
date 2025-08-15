@@ -1,37 +1,46 @@
 # Mini Projects 2025 🚀
 
-A collection of 8 small but impactful projects I built in 2025 to strengthen my programming, problem-solving, and project deployment skills.  
-Each project is implemented using different technologies, without relying on paid APIs, and is hosted in this repository for learning and portfolio purposes.
+A collection of **8 unique and functional projects** I built in 2025 to improve my programming, problem-solving, and deployment skills.  
+Each project uses different technologies, requires **no paid APIs**, and is hosted in this repository for learning and portfolio purposes.
 
 ---
 
 ## 📂 Project List
 
-| No. | Project Title | Tech Stack | Folder Name |
-|-----|--------------|------------|-------------|
-| 1 | To-Do List App | HTML, CSS, JavaScript | project-1-todo-list |
-| 2 | Calculator App | HTML, CSS, JavaScript | project-2-calculator |
-| 3 | Stopwatch & Timer | HTML, CSS, JavaScript | project-3-stopwatch-timer |
-| 4 | Notes App (Local Storage) | HTML, CSS, JavaScript | project-4-notes-app |
-| 5 | Quiz App | HTML, CSS, JavaScript | project-5-quiz-app |
-| 6 | Random Quote Generator | HTML, CSS, JavaScript | project-6-quote-generator |
-| 7 | Digital Clock | HTML, CSS, JavaScript | project-7-digital-clock |
-| 8 | Portfolio Website | HTML, CSS, JavaScript | project-8-portfolio |
+| No. | Project Title | Tech Stack | Folder Name | Live Demo |
+|-----|--------------|------------|-------------|-----------|
+| 1 | To-Do List App | HTML, CSS, JavaScript | project-1-todo-list | [View](https://abhirambuilds.github.io/mini-projects-2025/project-1-todo-list/) |
+| 2 | Personal Portfolio Website | HTML, CSS, JavaScript | project-2-portfolio-website | (coming soon) |
+| 3 | Calculator App | Java Swing | project-3-calculator-swing | (coming soon) |
+| 4 | Markdown Blog Site | Python Flask | project-4-markdown-blog | (coming soon) |
+| 5 | Expense Tracker | Python Tkinter | project-5-expense-tracker | (coming soon) |
+| 6 | Offline Chatbot | HTML, CSS, JavaScript | project-6-offline-chatbot | (coming soon) |
+| 7 | Handwritten Digit Recognition | Python, Streamlit, TensorFlow | project-7-digit-recognition | (coming soon) |
+| 8 | Memory Matching Game | HTML, CSS, JavaScript | project-8-memory-game | (coming soon) |
 
 ---
 
 ## 📜 How to Run a Project
+
 1. Clone this repository:
    ```bash
    git clone https://github.com/abhirambuilds/mini-projects-2025.git
-2. Open the specific project folder.
-3. Open the index.html file in your browser.
+
+
+Open the specific project folder.
+
+If it's a web project (HTML/CSS/JS), open index.html in your browser.
+If it's a Python or Java project, follow the instructions in its README.md.
 
 📌 About Me
+
 Hi, I'm Abhiram 👋
 🎓 B.Tech CSE @ SRM KTR (2024–2028)
 💻 Learning DSA, Web Development, and AI/ML
 🎯 Aspiring Software Engineer at FAANG by 2028
+
 📫 Connect with me:
-GitHub: abhirambuilds
-LinkedIn: [(https://www.linkedin.com/in/kabhiramreddy28/]
+
+GitHub: [abhirambuilds](https://github.com/abhirambuilds)
+
+LinkedIn: [K Abhiram Reddy](https://www.linkedin.com/in/kabhiramreddy28/)
