@@ -1,0 +1,165 @@
+{% extends "base.html" %}
+
+{% block title %}Manage Users - Admin Panel{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <div class="d-flex justify-content-between align-items-center mb-4">
+            <h1>
+                <i class="bi bi-people"></i> User Management
+            </h1>
+            <a href="{{ url_for('index') }}" class="btn btn-outline-secondary">
+                <i class="bi bi-arrow-left"></i> Back to Home
+            </a>
+        </div>
+
+        <!-- Admin Info Card -->
+        <div class="card mb-4">
+            <div class="card-header bg-primary text-white">
+                <h5 class="mb-0">
+                    <i class="bi bi-shield-check"></i> Admin Panel
+                </h5>
+            </div>
+            <div class="card-body">
+                <p class="mb-0">
+                    <strong>Total Users:</strong> {{ users|length }} | 
+                    <strong>Administrators:</strong> {{ users|selectattr('is_admin')|list|length }} | 
+                    <strong>Regular Users:</strong> {{ users|rejectattr('is_admin')|list|length }}
+                </p>
+            </div>
+        </div>
+
+        <!-- Users Table -->
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">
+                    <i class="bi bi-table"></i> Registered Users
+                </h5>
+            </div>
+            <div class="card-body">
+                {% if users %}
+                <div class="table-responsive">
+                    <table class="table table-hover">
+                        <thead class="table-light">
+                            <tr>
+                                <th>ID</th>
+                                <th>Username</th>
+                                <th>Email</th>
+                                <th>Role</th>
+                                <th>Member Since</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            {% for user in users %}
+                            <tr>
+                                <td>
+                                    <span class="badge bg-secondary">{{ user.id }}</span>
+                                </td>
+                                <td>
+                                    <strong>{{ user.username }}</strong>
+                                    {% if user.id == session.user_id %}
+                                    <span class="badge bg-info ms-2">You</span>
+                                    {% endif %}
+                                </td>
+                                <td>{{ user.email }}</td>
+                                <td>
+                                    {% if user.is_admin %}
+                                    <span class="badge bg-warning text-dark">Administrator</span>
+                                    {% else %}
+                                    <span class="badge bg-secondary">Regular User</span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <small class="text-muted">
+                                        {{ user.created_at.strftime('%b %d, %Y') }}
+                                    </small>
+                                </td>
+                                <td>
+                                    <div class="btn-group" role="group">
+                                        {% if user.id != session.user_id %}
+                                        <!-- Toggle Admin Status -->
+                                        <form method="POST" action="{{ url_for('toggle_admin_status', user_id=user.id) }}" 
+                                              style="display: inline;" 
+                                              onsubmit="return confirm('Are you sure you want to {% if user.is_admin %}revoke{% else %}grant{% endif %} admin privileges for {{ user.username }}?')">
+                                            <button type="submit" class="btn btn-sm {% if user.is_admin %}btn-outline-warning{% else %}btn-outline-success{% endif %}">
+                                                <i class="bi bi-{% if user.is_admin %}shield-x{% else %}shield-check{% endif %}"></i>
+                                                {% if user.is_admin %}Revoke Admin{% else %}Make Admin{% endif %}
+                                            </button>
+                                        </form>
+                                        
+                                        <!-- Delete User -->
+                                        <form method="POST" action="{{ url_for('delete_user', user_id=user.id) }}" 
+                                              style="display: inline;" 
+                                              onsubmit="return confirm('Are you sure you want to delete user {{ user.username }}? This action cannot be undone.')">
+                                            <button type="submit" class="btn btn-sm btn-outline-danger">
+                                                <i class="bi bi-trash"></i> Delete
+                                            </button>
+                                        </form>
+                                        {% else %}
+                                        <span class="text-muted">Current User</span>
+                                        {% endif %}
+                                    </div>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+                </div>
+                {% else %}
+                <div class="text-center py-5">
+                    <i class="bi bi-people display-1 text-muted"></i>
+                    <h3 class="mt-3">No Users Found</h3>
+                    <p class="text-muted">No users have registered yet.</p>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Admin Actions -->
+        <div class="card mt-4">
+            <div class="card-header bg-light">
+                <h6 class="mb-0">
+                    <i class="bi bi-gear"></i> Administrative Actions
+                </h6>
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-6">
+                        <h6>User Management</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success"></i> View all registered users</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Grant/revoke admin privileges</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Delete user accounts</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Monitor user activity</li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6">
+                        <h6>Content Management</h6>
+                        <ul class="list-unstyled">
+                            <li><i class="bi bi-check-circle text-success"></i> Edit any blog post</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Delete any blog post</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Full content control</li>
+                            <li><i class="bi bi-check-circle text-success"></i> Moderate user content</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Security Notice -->
+        <div class="alert alert-warning mt-4" role="alert">
+            <h6 class="alert-heading">
+                <i class="bi bi-exclamation-triangle"></i> Important Security Notes
+            </h6>
+            <ul class="mb-0">
+                <li><strong>Admin privileges</strong> give users full control over the blog</li>
+                <li><strong>User deletion</strong> permanently removes accounts and cannot be undone</li>
+                <li><strong>Self-modification</strong> is restricted to prevent accidental privilege loss</li>
+                <li><strong>Monitor carefully</strong> who you grant admin access to</li>
+            </ul>
+        </div>
+    </div>
+</div>
+{% endblock %}
