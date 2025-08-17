@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advanced Offline Chatbot</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="chat-container">
+        <!-- Header Section -->
+        <div class="chat-header">
+            <div class="bot-avatar">
+                <div class="bot-icon">
+                    <i class="fas fa-robot"></i>
+                </div>
+            </div>
+            <div class="header-info">
+                <h1>Advanced Offline Chatbot</h1>
+                <p>Powered by Comprehensive Knowledge Base</p>
+                <div class="status-indicator">
+                    <span class="status-dot"></span>
+                    <span class="status-text">Offline & Ready</span>
+                </div>
+            </div>
+            <div class="header-controls">
+                <button class="control-btn" id="testBtn" title="Test Knowledge Base">
+                    <i class="fas fa-vial"></i>
+                </button>
+                <button class="control-btn" id="clearChatBtn" title="Clear Chat">
+                    <i class="fas fa-trash"></i>
+                </button>
+                <button class="control-btn" id="helpBtn" title="Help">
+                    <i class="fas fa-question-circle"></i>
+                </button>
+                <button class="control-btn" id="settingsBtn" title="Settings">
+                    <i class="fas fa-cog"></i>
+                </button>
+            </div>
+        </div>
+        
+        <!-- Chat Messages Area -->
+        <div class="chat-messages" id="chatMessages">
+            <!-- Messages will be dynamically added here -->
+        </div>
+        
+        <!-- Input Section -->
+        <div class="chat-input-container">
+            <div class="input-wrapper">
+                <div class="input-field">
+                    <input type="text" 
+                           id="userInput" 
+                           placeholder="Ask me anything... (math, science, history, etc.)" 
+                           maxlength="500"
+                           autocomplete="off">
+                    <div class="input-actions">
+                        <button class="action-btn" id="voiceBtn" title="Voice Input">
+                            <i class="fas fa-microphone"></i>
+                        </button>
+                        <button class="action-btn" id="emojiBtn" title="Add Emoji">
+                            <i class="fas fa-smile"></i>
+                        </button>
+                    </div>
+                </div>
+                <button id="sendButton" class="send-btn" title="Send Message">
+                    <i class="fas fa-paper-plane"></i>
+                </button>
+            </div>
+            
+            <!-- Quick Actions -->
+            <div class="quick-actions">
+                <button class="quick-btn" data-query="Tell me a joke">😄 Joke</button>
+                <button class="quick-btn" data-query="What is the capital of France?">🌍 Geography</button>
+                <button class="quick-btn" data-query="What is 15 * 8?">🧮 Math</button>
+                <button class="quick-btn" data-query="What time is it?">⏰ Time</button>
+                <button class="quick-btn" data-query="Who was Albert Einstein?">🔬 Science</button>
+            </div>
+        </div>
+        
+        <!-- Footer -->
+        <div class="chat-footer">
+            <div class="footer-info">
+                <span>Advanced Offline Chatbot</span>
+            </div>
+            <div class="footer-actions">
+                <button class="footer-btn" id="exportChatBtn" title="Export Chat">
+                    <i class="fas fa-download"></i> Export
+                </button>
+                <button class="footer-btn" id="aboutBtn" title="About">
+                    <i class="fas fa-info-circle"></i> About
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Help Modal -->
+    <div class="modal" id="helpModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>🤖 Advanced Chatbot Help</h2>
+                <button class="close-btn" id="closeHelpBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="help-section">
+                    <h3>📚 What I Can Do</h3>
+                    <ul>
+                        <li><strong>General Knowledge:</strong> Ask about science, history, geography, technology</li>
+                        <li><strong>Math Calculations:</strong> Basic arithmetic (+, -, *, /)</li>
+                        <li><strong>Fuzzy Matching:</strong> I understand variations of questions</li>
+                        <li><strong>Offline Operation:</strong> No internet required</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h3>💡 Examples</h3>
+                    <ul>
+                        <li>"What is the capital of France?"</li>
+                        <li>"15 + 23" or "What is 15 plus 23?"</li>
+                        <li>"Tell me about Einstein"</li>
+                        <li>"What is DNA?"</li>
+                    </ul>
+                </div>
+                <div class="help-section">
+                    <h3>⌨️ Keyboard Shortcuts</h3>
+                    <ul>
+                        <li><strong>Enter:</strong> Send message</li>
+                        <li><strong>Ctrl+Enter:</strong> New line</li>
+                        <li><strong>Escape:</strong> Clear input</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- About Modal -->
+    <div class="modal" id="aboutModal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>ℹ️ About Advanced Chatbot</h2>
+                <button class="close-btn" id="closeAboutBtn">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="about-section">
+                    <h3>🚀 Features</h3>
+                    <ul>
+                        <li><strong>Comprehensive Knowledge Base:</strong> Thousands of Q&A pairs</li>
+                        <li><strong>Fuzzy Matching:</strong> Intelligent question understanding</li>
+                        <li><strong>Math Solver:</strong> Basic calculations</li>
+                        <li><strong>Modern UI:</strong> Beautiful chat interface</li>
+                        <li><strong>100% Offline:</strong> No internet required</li>
+                    </ul>
+                </div>
+                <div class="about-section">
+                    <h3>🛠️ Technology</h3>
+                    <ul>
+                        <li><strong>Frontend:</strong> HTML5, CSS3, JavaScript (ES6+)</li>
+                        <li><strong>Fuzzy Search:</strong> Levenshtein distance algorithm</li>
+                        <li><strong>Data Storage:</strong> Local JSON knowledge base</li>
+                        <li><strong>Responsive Design:</strong> Mobile and desktop optimized</li>
+                    </ul>
+                </div>
+                <div class="about-section">
+                    <h3>📊 Knowledge Categories</h3>
+                    <ul>
+                        <li>Science & Technology</li>
+                        <li>History & Geography</li>
+                        <li>Mathematics</li>
+                        <li>General Knowledge</li>
+                        <li>Fun & Entertainment</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Overlay -->
+    <div class="loading-overlay" id="loadingOverlay">
+        <div class="loading-spinner">
+            <div class="spinner"></div>
+            <p>Loading Knowledge Base...</p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
