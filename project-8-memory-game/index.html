@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 Memory Matching Game Pro</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header class="game-header">
+            <div class="header-top">
+                <h1>🧠 Memory Game Pro</h1>
+                <div class="header-controls">
+                    <button id="sound-toggle" class="control-btn" title="Toggle Sound">
+                        <i class="fas fa-volume-up"></i>
+                    </button>
+                    <button id="theme-toggle" class="control-btn" title="Toggle Theme">
+                        <i class="fas fa-moon"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="game-stats">
+                <div class="stat-item">
+                    <i class="fas fa-clock"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Time</span>
+                        <span id="timer" class="stat-value">00:00</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-mouse-pointer"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Moves</span>
+                        <span id="moves" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-star"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Score</span>
+                        <span id="score" class="stat-value">0</span>
+                    </div>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-trophy"></i>
+                    <div class="stat-content">
+                        <span class="stat-label">Best Time</span>
+                        <span id="best-time" class="stat-value">--:--</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="difficulty-selector">
+                <button class="difficulty-btn active" data-difficulty="easy">
+                    <i class="fas fa-baby"></i>
+                    <span>Easy</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="medium">
+                    <i class="fas fa-user"></i>
+                    <span>Medium</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="hard">
+                    <i class="fas fa-crown"></i>
+                    <span>Hard</span>
+                </button>
+                <button class="difficulty-btn" data-difficulty="extreme">
+                    <i class="fas fa-fire"></i>
+                    <span>Extreme</span>
+                </button>
+            </div>
+        </header>
+
+        <main class="game-container">
+            <div class="game-info-bar">
+                <div class="progress-container">
+                    <div class="progress-bar">
+                        <div id="progress-fill" class="progress-fill"></div>
+                    </div>
+                    <span id="progress-text" class="progress-text">0% Complete</span>
+                </div>
+            </div>
+            
+            <div id="game-board" class="game-board"></div>
+            
+            <div class="game-controls">
+                <button id="new-game-btn" class="game-btn primary">
+                    <i class="fas fa-plus"></i>
+                    New Game
+                </button>
+                <button id="hint-btn" class="game-btn secondary" disabled>
+                    <i class="fas fa-lightbulb"></i>
+                    Hint (<span id="hints-left">3</span>)
+                </button>
+            </div>
+        </main>
+
+        <div class="win-screen" id="win-screen">
+            <div class="win-content">
+                <div class="win-header">
+                    <h2>🎉 Congratulations!</h2>
+                    <p class="win-subtitle">You've completed the game!</p>
+                </div>
+                
+                <div class="final-stats">
+                    <div class="stat-row">
+                        <span class="stat-label">Time:</span>
+                        <span id="final-time" class="stat-value">00:00</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Moves:</span>
+                        <span id="final-moves" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Score:</span>
+                        <span id="final-score" class="stat-value">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Stars:</span>
+                        <div id="final-stars" class="stars-display">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="win-actions">
+                    <button id="play-again-btn" class="play-again-btn">
+                        <i class="fas fa-redo"></i>
+                        Play Again
+                    </button>
+                    <button id="share-btn" class="share-btn">
+                        <i class="fas fa-share"></i>
+                        Share Score
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="hint-overlay" id="hint-overlay">
+            <div class="hint-content">
+                <i class="fas fa-lightbulb"></i>
+                <p>Hint: Look for patterns!</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
