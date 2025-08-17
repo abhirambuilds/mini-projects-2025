@@ -2,8 +2,7 @@
 
 A powerful and user-friendly desktop expense tracking application built with Python Tkinter, featuring income management, realistic Indian family sample data, advanced filtering, and CSV persistence.
 
-✨ Features
-📊 Financial Overview
+✨ Features 📊 Financial Overview
 
 Fixed Monthly Income: Manage a fixed salary (default ₹45,000/month)
 
@@ -61,34 +60,26 @@ Responsive Layout with scrollable transaction history
 
 ₹ Currency Support everywhere
 
-🚀 Installation
-Prerequisites
+🚀 Installation Prerequisites
 
 Python 3.7+
 
 pip (Python package manager)
 
 Steps
-# Step 1: Clone the repo
-git clone <repository-url>
-cd project-5-expense-tracker
 
-# Step 2: Install dependencies
+Step 1: Clone the repo
+git clone cd project-5-expense-tracker
+
+Step 2: Install dependencies
 pip install -r requirements.txt
 
-# Step 3: Run the app
+Step 3: Run the app
 python main.py
 
-📁 Project Structure
-project-5-expense-tracker/
-├── main.py              # Main Tkinter app
-├── transactions.csv     # Transaction data (auto-created)
-├── demo.py              # Generates 1 year of sample data
-├── requirements.txt     # Dependencies
-└── README.md            # Documentation
+📁 Project Structure project-5-expense-tracker/ ├── main.py # Main Tkinter app ├── transactions.csv # Transaction data (auto-created) ├── demo.py # Generates 1 year of sample data ├── requirements.txt # Dependencies └── README.md # Documentation
 
-🎯 Usage Guide
-Adding a Transaction
+🎯 Usage Guide Adding a Transaction
 
 Select Type (Income / Expense)
 
@@ -116,7 +107,6 @@ Run the demo script to auto-fill with 1 year of realistic transactions:
 
 python demo.py
 
-
 This generates:
 
 Monthly Salary: ₹45,000
@@ -139,11 +129,7 @@ Pie Chart → Expense breakdown by category
 
 Bar Chart → Income vs Expenses per month
 
-📊 CSV Format
-date,description,amount,category,type
-2025-01-01,Monthly Salary,45000,Salary Income,Income
-2025-01-02,House Rent,12000,Rent,Expense
-2025-01-05,Groceries,4500,Groceries,Expense
+📊 CSV Format date,description,amount,category,type 2025-01-01,Monthly Salary,45000,Salary Income,Income 2025-01-02,House Rent,12000,Rent,Expense 2025-01-05,Groceries,4500,Groceries,Expense
 
 🔧 Customization
 
