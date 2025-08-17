@@ -22,7 +22,6 @@ class AdvancedOfflineChatbot {
         // Initialize the chatbot
         this.initializeChatbot();
         this.setupEventListeners();
-        this.loadConversationHistory();
     }
 
     /**
@@ -41,8 +40,8 @@ class AdvancedOfflineChatbot {
             // Hide loading overlay
             this.hideLoadingOverlay();
             
-            // Display welcome message
-            this.displayWelcomeMessage();
+            // Load conversation history first (this will handle welcome message if needed)
+            this.loadConversationHistory();
             
             // Update knowledge base count
             this.updateKnowledgeCount();
@@ -488,6 +487,17 @@ class AdvancedOfflineChatbot {
     }
 
     /**
+     * Display user message without saving to history (for restoring conversations)
+     */
+    displayUserMessageOnly(message) {
+        const messageElement = this.createMessageElement(message, 'user');
+        this.chatMessages.appendChild(messageElement);
+        
+        // Scroll to bottom
+        this.scrollToBottom();
+    }
+
+    /**
      * Display bot message
      */
     displayBotMessage(message) {
@@ -503,6 +513,17 @@ class AdvancedOfflineChatbot {
         
         // Save conversation
         this.saveConversationHistory();
+        
+        // Scroll to bottom
+        this.scrollToBottom();
+    }
+
+    /**
+     * Display bot message without saving to history (for restoring conversations)
+     */
+    displayBotMessageOnly(message) {
+        const messageElement = this.createMessageElement(message, 'bot');
+        this.chatMessages.appendChild(messageElement);
         
         // Scroll to bottom
         this.scrollToBottom();
@@ -570,7 +591,8 @@ class AdvancedOfflineChatbot {
      * Display welcome message
      */
     displayWelcomeMessage() {
-        const welcomeMessage = `Hello! I'm your Advanced Offline Chatbot! 🤖
+        // Check if welcome message is already in conversation history
+        const welcomeMessageText = `Hello! I'm your Advanced Offline Chatbot! 🤖
 
 I'm powered by a comprehensive knowledge base covering:
 • Science & Technology 🔬
@@ -583,7 +605,14 @@ I can also solve basic math calculations and understand variations of questions 
 
 What would you like to know?`;
         
-        this.displayBotMessage(welcomeMessage);
+        // Only display if not already in conversation history
+        const hasWelcomeMessage = this.conversationHistory.some(item => 
+            item.type === 'bot' && item.message === welcomeMessageText
+        );
+        
+        if (!hasWelcomeMessage) {
+            this.displayBotMessage(welcomeMessageText);
+        }
     }
 
     /**
@@ -709,9 +738,14 @@ What would you like to know?`;
                 
                 // Display conversation history
                 this.displayConversationHistory();
+            } else {
+                // No conversation history, display welcome message
+                this.displayWelcomeMessage();
             }
         } catch (error) {
             console.warn('Could not load conversation from localStorage:', error);
+            // If there's an error loading history, display welcome message
+            this.displayWelcomeMessage();
         }
     }
 
@@ -724,12 +758,12 @@ What would you like to know?`;
         // Clear current messages
         this.chatMessages.innerHTML = '';
         
-        // Display all messages
+        // Display all messages without adding to conversation history
         this.conversationHistory.forEach(item => {
             if (item.type === 'user') {
-                this.addUserMessage(item.message);
+                this.displayUserMessageOnly(item.message);
             } else {
-                this.displayBotMessage(item.message);
+                this.displayBotMessageOnly(item.message);
             }
         });
         
