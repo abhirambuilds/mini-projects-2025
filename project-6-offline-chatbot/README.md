@@ -1,5 +1,7 @@
 🤖 Advanced Offline Chatbot
-Website Link: https://abhirambuilds.github.io/mini-projects-2025/project-1-todo-list/
+
+
+Website Link: [https://abhirambuilds.github.io/mini-projects-2025/project-1-todo-list/](https://abhirambuilds.github.io/mini-projects-2025/project-6-offline-chatbot/)
 
 A comprehensive offline chatbot application built with HTML, CSS, and JavaScript, featuring an intelligent knowledge base, fuzzy matching, math solving, and a modern chat UI. This project demonstrates how AI-like assistants can be simulated without relying on external APIs or internet access.
 
@@ -144,4 +146,5 @@ Levenshtein Distance Algorithm for fuzzy string matching
 Math.js inspiration for math parsing ideas
 
 Modern UI patterns from chat apps (WhatsApp, Messenger)
+
 
