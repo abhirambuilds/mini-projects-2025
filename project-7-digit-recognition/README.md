@@ -1,181 +1,178 @@
-# 🔢 Handwritten Digit Recognition Web App
+🔢 Handwritten Digit Recognition Web App
 
-A real-time handwritten digit recognition application built with Python, Streamlit, and TensorFlow. This app allows users to draw digits on a canvas and get instant predictions using a trained neural network.
+An advanced real-time handwritten digit recognition web application built with Python, Streamlit, and TensorFlow. The app enables users to draw digits on an interactive canvas and instantly receive predictions powered by a robust convolutional neural network (CNN).
 
-## ✨ Features
+✨ Features
+🎨 User Experience
 
-- **Interactive Drawing Canvas**: Draw digits using mouse or touch input
-- **Real-time Prediction**: Get instant digit recognition results with ensemble methods
-- **Confidence System**: View prediction confidence with adjustable threshold
-- **Model Persistence**: Trained model is saved and reused (no retraining needed)
-- **Clean UI**: Minimal, modern interface with responsive design
-- **Visual Feedback**: See the processed image that goes into the model
-- **Robust Recognition**: Better handling of rotated, scaled, and distorted digits
-- **Image Preprocessing**: Automatic digit detection, cropping, and centering
-- **Top 3 Predictions**: See multiple possible digits with confidence rankings
-- **Training Monitoring**: Monitor model training with early stopping and learning rate scheduling
+Interactive Drawing Canvas: Draw digits (0-9) using mouse or touch
 
-## 🏗️ Architecture
+Instant Prediction: Real-time classification with confidence scores
 
-The application uses a **Convolutional Neural Network (CNN)** with the following structure:
+Visual Feedback: Shows both raw drawing and preprocessed image used by the model
 
-- **Input Layer**: 28×28×1 grayscale images (MNIST format)
-- **Data Augmentation**: Random rotation (±11.5°), zoom (±10%), translation (±10%), brightness, and noise
-- **Initial Conv**: 7×7 convolution with 64 filters for larger receptive field
-- **Residual Blocks**: Multiple residual connections with skip connections for better gradient flow
-- **Batch Normalization**: Applied throughout for stable training
-- **Global Pooling**: Global average pooling instead of flattening for better generalization
-- **Dense Layers**: 256 → 128 neurons with progressive dropout (0.4 → 0.3)
-- **Output Layer**: 10 neurons with softmax activation (digits 0-9)
+Top 3 Predictions: Displays alternative predictions with ranking
 
-## 📁 File Structure
+Clean UI: Minimal, modern interface with responsive layout
 
-```
+🧠 AI & Model Features
+
+Convolutional Neural Network (CNN) trained on MNIST dataset
+
+Ensemble Predictions: Multiple augmented versions for robust output
+
+Image Preprocessing: Auto-cropping, centering, and normalization
+
+Training Optimizations: Early stopping, learning rate scheduling
+
+High Accuracy: ~98% accuracy on MNIST test set
+
+🛠️ Technical Features
+
+Streamlit Framework: Lightweight, interactive web app framework
+
+Model Persistence: Saves trained model (model.h5) for reuse
+
+Fast Predictions: <200ms per digit
+
+Efficient Memory Usage: Optimized for standard laptops/desktops
+
+🏗️ Architecture
+
+Input: User’s handwritten digit (drawn in canvas)
+
+Preprocessing: Resized to 28×28, centered, normalized, color-inverted
+
+Model: CNN with residual blocks, dropout, and batch normalization
+
+Output: Predicted digit + confidence scores
+
+User Input → Preprocessing → CNN Model → Predictions (0–9)
+
+📁 File Structure
 project-7-digit-recognition/
 ├── app.py              # Main Streamlit application
-├── model.h5            # Trained neural network model (auto-generated)
+├── model.h5            # Pre-trained model (auto-generated after first run)
 ├── requirements.txt    # Python dependencies
-└── README.md          # This file
-```
+└── README.md           # Documentation file
 
-## 🚀 Quick Start
+🚀 Getting Started
+Prerequisites
 
-### Prerequisites
+Python 3.8+
 
-- Python 3.8 or higher
-- pip package manager
+pip (Python package manager)
 
-### Installation
+Installation
 
-1. **Clone or download this project**
-   ```bash
-   git clone <repository-url>
-   cd project-7-digit-recognition
-   ```
+Clone or Download
 
-2. **Install dependencies**
-   ```bash
-   pip install -r requirements.txt
-   ```
+git clone <repository-url>
+cd project-7-digit-recognition
 
-3. **Run the application**
-   ```bash
-   streamlit run app.py
-   ```
 
-4. **Open your browser**
-   - The app will automatically open at `http://localhost:8501`
-   - If it doesn't open automatically, navigate to the URL manually
+Install Dependencies
 
-## 🎯 How to Use
+pip install -r requirements.txt
 
-1. **First Run**: The app will automatically train a new model on the MNIST dataset (takes ~5-8 minutes)
-2. **Subsequent Runs**: The app will load the pre-trained model instantly
-3. **Drawing**: Use your mouse or touch to draw a digit (0-9) in the canvas
-4. **Prediction**: Click the "🚀 Predict Digit" button to get results
-5. **Results**: View the predicted digit, confidence level, and detailed confidence scores
 
-## 🔧 Technical Details
+Run the Application
 
-### Model Training
-- **Dataset**: MNIST (70,000 handwritten digits)
-- **Training**: Up to 15 epochs with early stopping and learning rate scheduling
-- **Data Augmentation**: Rotation, zoom, translation, brightness, and noise variations
-- **Accuracy**: Typically achieves 98%+ accuracy on test set
-- **Model Size**: ~2.5MB (efficient for web deployment)
-- **Training Time**: ~5-8 minutes on first run
+streamlit run app.py
 
-### Image Processing
-- **Input**: User-drawn image from canvas
-- **Preprocessing**: 
-  - Automatic digit detection and cropping
-  - Center the digit in a 28×28 canvas
-  - Preserve aspect ratio during resizing
-  - Contrast enhancement
-  - Normalize pixel values to [0,1]
-  - Invert colors (MNIST format: white digits on black background)
-- **Ensemble Prediction**: Generate 5 augmented versions for robust results
-- **Output**: Tensor ready for model prediction
 
-### Performance
-- **Training Time**: ~5-8 minutes on first run
-- **Prediction Time**: <200ms per image (ensemble prediction with 5 versions)
-- **Memory Usage**: ~800MB during training, ~300MB during inference
-- **Robustness**: Better handling of rotated, scaled, and distorted digits
+Open in Browser
 
-## 🎨 Customization
+App runs at: http://localhost:8501
 
-### Modifying the Model
-Edit the `train_model()` function in `app.py` to:
-- Change network architecture
-- Adjust training parameters
-- Use different optimizers or loss functions
+🎯 How to Use
 
-### UI Customization
-Modify the CSS styles in the `st.markdown()` section to:
-- Change colors and fonts
-- Adjust layout and spacing
-- Add custom animations
+First Run: Model will train on MNIST (~5–8 min)
 
-### Adding Features
-Consider adding:
-- Model performance metrics
-- Training history visualization
-- Multiple model comparison
-- Export predictions to file
+Subsequent Runs: Loads saved model instantly
 
-## 🐛 Troubleshooting
+Draw Digit: Use canvas to draw any digit (0–9)
 
-### Common Issues
+Predict: Click "🚀 Predict Digit" button
 
-1. **"No module named 'tensorflow'"**
-   - Solution: Install dependencies with `pip install -r requirements.txt`
+Results: View predicted digit, confidence %, and top-3 predictions
 
-2. **Model training fails**
-   - Check internet connection (needs to download MNIST dataset)
-   - Ensure sufficient RAM (>2GB available)
-   - Try reducing batch size in training
+🔧 Customization
 
-3. **Canvas not working**
-   - Ensure `streamlit-drawable-canvas` is installed
-   - Check browser compatibility
+Model: Edit train_model() in app.py to change architecture
 
-4. **Slow performance**
-   - First run includes model training (expected)
-   - Subsequent runs use cached model (fast)
+UI Styling: Modify CSS in st.markdown()
 
-### System Requirements
-- **Minimum**: 4GB RAM, Python 3.8+
-- **Recommended**: 8GB RAM, Python 3.9+
-- **OS**: Windows, macOS, or Linux
+Training Settings: Adjust epochs, batch size, optimizer
 
-## 📚 Dependencies
+Features to Add:
 
-- **TensorFlow 2.15.0**: Deep learning framework
-- **Streamlit 1.28.1**: Web application framework
-- **NumPy 1.24.3**: Numerical computing
-- **Matplotlib 3.7.2**: Plotting and visualization
-- **Pillow 10.0.1**: Image processing
-- **streamlit-drawable-canvas 0.9.3**: Interactive drawing component
+Accuracy graphs
 
-## 🤝 Contributing
+Confusion matrix visualization
 
-Feel free to contribute by:
-- Reporting bugs
-- Suggesting new features
-- Improving documentation
-- Optimizing the model architecture
+Export predictions
 
-## 📄 License
+🐛 Troubleshooting
 
-This project is open source and available under the MIT License.
+Error: No module named 'tensorflow'
 
-## 🙏 Acknowledgments
+Run: pip install -r requirements.txt
 
-- **MNIST Dataset**: Created by Yann LeCun and Corinna Cortes
-- **TensorFlow**: Google's open-source machine learning framework
-- **Streamlit**: The fastest way to build data apps
+Model training too slow
 
----
+Reduce epochs or batch size in train_model()
 
-**Happy Digit Recognition! 🎉**
+Canvas not working
+
+Ensure streamlit-drawable-canvas is installed
+
+Use updated Chrome/Firefox browser
+
+📊 Performance
+
+Accuracy: ~98% on MNIST test set
+
+Training Time: 5–8 min on CPU
+
+Prediction Time: <200ms
+
+Memory Usage: ~300MB (inference), ~800MB (training)
+
+📚 Dependencies
+
+TensorFlow – Deep learning framework
+
+Streamlit – Web app framework
+
+NumPy – Numerical operations
+
+Matplotlib – Visualizations
+
+Pillow – Image preprocessing
+
+streamlit-drawable-canvas – Drawing interface
+
+🤝 Contributing
+
+Contributions are welcome!
+
+Report bugs
+
+Suggest new features
+
+Improve accuracy or UI
+
+📄 License
+
+This project is open-source and available under the MIT License.
+
+🙏 Acknowledgments
+
+MNIST Dataset: Yann LeCun & Corinna Cortes
+
+TensorFlow: Google Brain Team
+
+Streamlit: For making ML deployment easy
+
+✍️ Built with ❤️ using Python, Streamlit, and TensorFlow
