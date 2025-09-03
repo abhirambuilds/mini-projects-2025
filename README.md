@@ -37,7 +37,7 @@ If it's a Python or Java project, follow the instructions in its README.md.
 Hi, I'm Abhiram 👋
 🎓 B.Tech CSE @ SRM KTR (2024–2028)
 💻 Learning DSA, Web Development, and AI/ML
-🎯 Aspiring Software Engineer at FAANG by 2028
+🎯 Dream: SWE @ Tier-1 Product-Based Company by 2028
 
 📫 Connect with me:
 
