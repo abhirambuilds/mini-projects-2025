@@ -10,7 +10,7 @@ Each project uses different technologies, requires **no paid APIs**, and is host
 | No. | Project Title | Tech Stack | Folder Name | Live Demo |
 |-----|--------------|------------|-------------|-----------|
 | 1 | To-Do List App | HTML, CSS, JavaScript | project-1-todo-list | [View](https://abhirambuilds.github.io/mini-projects-2025/project-1-todo-list/) |
-| 2 | Personal Portfolio Website | HTML, CSS, JavaScript | project-2-portfolio-website | (coming soon) |
+| 2 | Personal Portfolio Website | HTML, CSS, JavaScript | project-2-portfolio-website |[View](https://abhirambuilds.github.io/mini-projects-2025/project-2-portfolio-website/)|
 | 3 | Calculator App | Java Swing | project-3-calculator-swing | (❌) |
 | 4 | Markdown Blog Site | Python Flask | project-4-markdown-blog | (❌) |
 | 5 | Expense Tracker | Python Tkinter | project-5-expense-tracker | (❌) |
